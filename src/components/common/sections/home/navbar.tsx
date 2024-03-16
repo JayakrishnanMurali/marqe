@@ -4,8 +4,12 @@ import Link from "next/link";
 import { APP_ROUTES } from "@/configs/routes";
 import { NavItems } from "./nav-items";
 import { locale } from "@/locale/locale";
+import { buttonVariants } from "@/components/ui/button";
+import { Cart } from "./cart";
 
 export const Navbar = () => {
+  const user = null;
+
   return (
     <nav className="sticky z-50 bg-white top-0 inset-x-0 h-16">
       <header className="relative bg-white">
@@ -22,6 +26,59 @@ export const Navbar = () => {
 
               <div className="hidden z-50 lg:ml-8 lg:block lg:self-stretch">
                 <NavItems />
+              </div>
+
+              <div className="ml-auto flex items-center">
+                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-3">
+                  {user ? null : (
+                    <Link
+                      href={APP_ROUTES.signIn}
+                      className={buttonVariants({
+                        variant: "ghost",
+                      })}
+                    >
+                      Sign in
+                    </Link>
+                  )}
+
+                  {user ? null : (
+                    <span
+                      className="h-6 w-px bg-secondary"
+                      aria-hidden="true"
+                    />
+                  )}
+
+                  {user ? null : (
+                    <Link
+                      href={APP_ROUTES.createAccount}
+                      className={buttonVariants({
+                        variant: "ghost",
+                      })}
+                    >
+                      Create account
+                    </Link>
+                  )}
+
+                  {user ? (
+                    <span
+                      className="h-6 w-px bg-secondary"
+                      aria-hidden="true"
+                    />
+                  ) : null}
+
+                  {user ? null : (
+                    <div className="flex lg:ml-3">
+                      <span
+                        className="h-6 w-px bg-secondary"
+                        aria-hidden="true"
+                      />
+                    </div>
+                  )}
+
+                  <div className="ml-2 flow-root lg:ml-3">
+                    <Cart />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

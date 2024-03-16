@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { appRoutes } from "@/constants/routes";
+import { APP_ROUTES } from "@/configs/routes";
 import { cn } from "@/lib/utils";
 import { locale } from "@/locale/locale";
 import Link from "next/link";
@@ -17,7 +17,7 @@ export const Hero = () => {
       </p>
 
       <div className="flex flex-col sm:flex-row mt-6 gap-4">
-        <Link className={cn(buttonVariants())} href={appRoutes.browseTrending}>
+        <Link className={cn(buttonVariants())} href={APP_ROUTES.browseTrending}>
           {locale.home.browseTrending}
         </Link>
         <Button variant="ghost">{locale.home.ourQualityPromise} &rarr;</Button>

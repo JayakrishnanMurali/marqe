@@ -1,4 +1,4 @@
-export const appRoutes = {
+export const APP_ROUTES = {
   home: "/",
   browseTrending: "/products",
 };
